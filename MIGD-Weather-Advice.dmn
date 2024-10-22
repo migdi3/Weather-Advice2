@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dmn:definitions xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns="https://kie.apache.org/dmn/_753B3D2B-DF51-4295-8CF6-2958ABF19FE2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D9896F32-5E50-47AD-9EAD-A9F034A46707" name="MIGD Getting Started" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.apache.org/dmn/_753B3D2B-DF51-4295-8CF6-2958ABF19FE2">
+  <dmn:extensionElements />
+  <dmn:inputData name="Name" id="_A93C2E2B-30AC-4EF3-BE62-560B7E4F4825">
+    <dmn:variable name="Name" id="_FDB725AA-B2B2-48FC-B8D9-752FB4EB06AC" />
+  </dmn:inputData>
+  <dmn:decision name="Daily-Advice" id="_1736C612-77AB-4671-B5CB-2C25C3F15134">
+    <dmn:variable id="_A7450678-61E6-41F7-9284-004B87C1667F" name="Daily-Advice" />
+    <dmn:informationRequirement id="_C0F47023-4EA7-488C-8234-ED0E742D4988">
+      <dmn:requiredInput href="#_A93C2E2B-30AC-4EF3-BE62-560B7E4F4825" />
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_875A45ED-6AA7-4BA2-83CE-AD595212C888" label="Daily-Advice">
+      <dmn:text>if Name = &quot;&quot; then &quot;Sorry, we don&apos;t have enough information to provide a response.&quot; else &quot;Hello &quot;+Name+&quot;! &quot;</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_0D5CB4F1-F62A-4ECC-A26B-968613AE985C" name="DRG" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_875A45ED-6AA7-4BA2-83CE-AD595212C888">
+            <kie:width>1234</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_61E67A03-2B36-4C9F-8AB3-A6753150153C" dmnElementRef="_A93C2E2B-30AC-4EF3-BE62-560B7E4F4825" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="540" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_F9605C63-0926-4935-895C-2E15B238F68B" dmnElementRef="_1736C612-77AB-4671-B5CB-2C25C3F15134" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="540" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_9E6AF006-6ACB-4D32-A7CC-5343474B7D1F-AUTO-TARGET" dmnElementRef="_C0F47023-4EA7-488C-8234-ED0E742D4988" sourceElement="_61E67A03-2B36-4C9F-8AB3-A6753150153C" targetElement="_F9605C63-0926-4935-895C-2E15B238F68B">
+        <di:waypoint x="620" y="220" />
+        <di:waypoint x="620" y="40" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
