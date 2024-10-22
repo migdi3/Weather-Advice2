@@ -40,7 +40,7 @@
           <dmn:text>&quot;Nice day. Enjoy the weather.&quot;</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>// Your annotations here</dmn:text>
+          <dmn:text></dmn:text>
         </dmn:annotationEntry>
       </dmn:rule>
       <dmn:rule id="_195FE471-2564-43A8-9AB7-37307F5F3989">
@@ -51,7 +51,7 @@
           <dmn:text>&quot;Risk of rain. Might need an umbrella&quot;</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>// Your annotations here</dmn:text>
+          <dmn:text></dmn:text>
         </dmn:annotationEntry>
       </dmn:rule>
       <dmn:rule id="_49966620-0812-4967-8F52-13AFDA944531">
@@ -62,7 +62,7 @@
           <dmn:text>&quot;Rainy day. Take an umbrella&quot;</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>// Your annotations here</dmn:text>
+          <dmn:text></dmn:text>
         </dmn:annotationEntry>
       </dmn:rule>
     </dmn:decisionTable>
