@@ -13,18 +13,18 @@
       <dmn:requiredDecision href="#_B1640284-2CED-46ED-9694-DAC7F041A29D" />
     </dmn:informationRequirement>
     <dmn:literalExpression id="_875A45ED-6AA7-4BA2-83CE-AD595212C888" typeRef="string" label="Daily-Advice">
-      <dmn:text>if Name = &quot;&quot; then &quot;Sorry, we don&apos;t have enough information to provide a response.&quot; else &quot;Hello &quot;+Name+&quot;! &quot;</dmn:text>
+      <dmn:text>if Name = &quot;&quot; then &quot;Sorry, we don&apos;t have enough information to provide a response.&quot; else &quot;Hello &quot;+Name+&quot;! &quot; + Weather-Advice</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData name="Rain-Forecast" id="_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5">
     <dmn:variable name="Rain-Forecast" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="number" />
   </dmn:inputData>
   <dmn:decision name="Weather-Advice" id="_B1640284-2CED-46ED-9694-DAC7F041A29D">
-    <dmn:variable id="_81524467-361E-452A-B8DD-C484BBF14C76" name="Weather-Advice" />
+    <dmn:variable id="_81524467-361E-452A-B8DD-C484BBF14C76" typeRef="string" name="Weather-Advice" />
     <dmn:informationRequirement id="_6539573C-980E-46E6-9BD5-E855AB5CFC82">
       <dmn:requiredInput href="#_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5" />
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_FF3B1A6E-A48A-408E-9CBF-8D7F188A39B2" hitPolicy="UNIQUE" label="Weather-Advice">
+    <dmn:decisionTable id="_FF3B1A6E-A48A-408E-9CBF-8D7F188A39B2" typeRef="string" hitPolicy="UNIQUE" label="Weather-Advice">
       <dmn:input id="_B0FB46AE-58A0-4677-93ED-13BCA6605D7C">
         <dmn:inputExpression id="_2AAD78DB-23DB-46BA-B329-B4AC7B603700" typeRef="number">
           <dmn:text>Rain-Forecast</dmn:text>
