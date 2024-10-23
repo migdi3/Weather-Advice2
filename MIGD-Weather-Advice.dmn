@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dmn:definitions xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns="https://kie.apache.org/dmn/_753B3D2B-DF51-4295-8CF6-2958ABF19FE2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D9896F32-5E50-47AD-9EAD-A9F034A46707" name="MIGD Getting Started" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.apache.org/dmn/_753B3D2B-DF51-4295-8CF6-2958ABF19FE2">
   <dmn:extensionElements />
+  <dmn:itemDefinition id="_C07AAC54-3367-4E17-8E42-1E69E000E05F" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <dmn:description>temperature</dmn:description>
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:typeConstraint id="_A491594F-D894-4AC6-B2F4-0F01849F9C63" kie:constraintType="expression">
+      <dmn:text>&quot;cold&quot;,&quot;warm&quot;,&quot;hot&quot;</dmn:text>
+    </dmn:typeConstraint>
+  </dmn:itemDefinition>
   <dmn:inputData name="Name" id="_A93C2E2B-30AC-4EF3-BE62-560B7E4F4825">
     <dmn:variable name="Name" id="_FDB725AA-B2B2-48FC-B8D9-752FB4EB06AC" typeRef="string" />
   </dmn:inputData>
