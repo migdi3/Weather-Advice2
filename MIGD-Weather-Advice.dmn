@@ -4,7 +4,7 @@
   <dmn:itemDefinition id="_2C5AC602-035C-4CE0-95ED-AB91CB8F7C00" name="rainForecast" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:typeRef>number</dmn:typeRef>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_F1557017-BBF8-4AFF-833D-013449D8B66C" name="weather" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+  <dmn:itemDefinition id="_F1557017-BBF8-4AFF-833D-013449D8B66C" name="Weather" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:description>weather</dmn:description>
     <dmn:itemComponent id="_4D53CA18-B25C-4D10-9FE1-A7CE6783F7E5" name="rainForecast" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <dmn:typeRef>rainForecast</dmn:typeRef>
@@ -16,8 +16,8 @@
   <dmn:itemDefinition id="_C07AAC54-3367-4E17-8E42-1E69E000E05F" name="temperature" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:description>temperature</dmn:description>
     <dmn:typeRef>string</dmn:typeRef>
-    <dmn:typeConstraint id="_A491594F-D894-4AC6-B2F4-0F01849F9C63" kie:constraintType="expression">
-      <dmn:text>&quot;cold&quot;,&quot;warm&quot;,&quot;hot&quot;</dmn:text>
+    <dmn:typeConstraint id="_02C2BBAB-2386-498E-8F07-02C9CCA99DFC" kie:constraintType="enumeration">
+      <dmn:text>&quot;cold&quot;, &quot;warm&quot;, &quot;hot&quot;</dmn:text>
     </dmn:typeConstraint>
   </dmn:itemDefinition>
   <dmn:inputData name="Name" id="_A93C2E2B-30AC-4EF3-BE62-560B7E4F4825">
@@ -36,7 +36,7 @@
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData name="Rain-Forecast" id="_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5">
-    <dmn:variable name="Rain-Forecast" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="number" />
+    <dmn:variable name="Rain-Forecast" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="Weather" />
   </dmn:inputData>
   <dmn:decision name="Weather-Advice" id="_B1640284-2CED-46ED-9694-DAC7F041A29D">
     <dmn:variable id="_81524467-361E-452A-B8DD-C484BBF14C76" typeRef="string" name="Weather-Advice" />
@@ -51,7 +51,7 @@
       </dmn:input>
       <dmn:input id="_D74698D5-7CD6-45FD-ADAB-FD7766F27BF1">
         <dmn:inputExpression id="_CA4F1BC1-E792-46C3-825A-75F5CF21C32D" typeRef="string">
-          <dmn:text>Weaather.temperature</dmn:text>
+          <dmn:text>Weather.temperature</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_2C5C9285-D4ED-4ABE-A980-B9E942A556C0" name="Output-1" />
@@ -117,28 +117,28 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_61E67A03-2B36-4C9F-8AB3-A6753150153C" dmnElementRef="_A93C2E2B-30AC-4EF3-BE62-560B7E4F4825" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="540" y="180" width="160" height="80" />
+        <dc:Bounds x="640" y="240" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_F9605C63-0926-4935-895C-2E15B238F68B" dmnElementRef="_1736C612-77AB-4671-B5CB-2C25C3F15134" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="540" y="0" width="160" height="80" />
+        <dc:Bounds x="660" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9E6AF006-6ACB-4D32-A7CC-5343474B7D1F-AUTO-TARGET" dmnElementRef="_C0F47023-4EA7-488C-8234-ED0E742D4988" sourceElement="_61E67A03-2B36-4C9F-8AB3-A6753150153C" targetElement="_F9605C63-0926-4935-895C-2E15B238F68B">
-        <di:waypoint x="620" y="220" />
-        <di:waypoint x="620" y="40" />
+        <di:waypoint x="720" y="280" />
+        <di:waypoint x="740" y="60" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="_5A3C4F8C-5622-4EF5-9577-F77DE4BA6815" dmnElementRef="_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="340" y="180" width="160" height="80" />
+        <dc:Bounds x="280" y="180" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_29028421-F398-4AF7-B22E-749C2CEAD71C" dmnElementRef="_B1640284-2CED-46ED-9694-DAC7F041A29D" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="40" width="160" height="80" />
+        <dc:Bounds x="280" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6344316E-D819-4CF6-B843-A3438DBA667B-AUTO-TARGET" dmnElementRef="_6539573C-980E-46E6-9BD5-E855AB5CFC82" sourceElement="_5A3C4F8C-5622-4EF5-9577-F77DE4BA6815" targetElement="_29028421-F398-4AF7-B22E-749C2CEAD71C">
-        <di:waypoint x="420" y="220" />
-        <di:waypoint x="400" y="80" />
+        <di:waypoint x="360" y="220" />
+        <di:waypoint x="360" y="60" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_1886858B-49DC-46C8-B00F-4503A9B4E9B6" dmnElementRef="_D62D0C0A-8EAD-4072-A461-686D7E993EA3" sourceElement="_29028421-F398-4AF7-B22E-749C2CEAD71C" targetElement="_F9605C63-0926-4935-895C-2E15B238F68B">
-        <di:waypoint x="400" y="80" />
-        <di:waypoint x="540" y="40" />
+        <di:waypoint x="360" y="60" />
+        <di:waypoint x="660" y="60" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
