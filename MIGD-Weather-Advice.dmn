@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dmn:definitions xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns="https://kie.apache.org/dmn/_753B3D2B-DF51-4295-8CF6-2958ABF19FE2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D9896F32-5E50-47AD-9EAD-A9F034A46707" name="MIGD Getting Started" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.apache.org/dmn/_753B3D2B-DF51-4295-8CF6-2958ABF19FE2">
   <dmn:extensionElements />
+  <dmn:itemDefinition id="_ECCD43F1-1060-4BF2-B8F4-411F348D9901" name="stormAlert" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <dmn:description>Alert Strom of Weather</dmn:description>
+    <dmn:typeRef>boolean</dmn:typeRef>
+  </dmn:itemDefinition>
   <dmn:itemDefinition id="_2C5AC602-035C-4CE0-95ED-AB91CB8F7C00" name="rainForecast" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:typeRef>number</dmn:typeRef>
   </dmn:itemDefinition>
@@ -12,11 +16,14 @@
     <dmn:itemComponent id="_F0CEA6F4-17C3-44B5-94F0-7F87E2B98F74" name="temperature" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <dmn:typeRef>temperature</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_2818093A-5D4F-4F2B-9943-6B27F29AACAD" name="stormAlert" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <dmn:typeRef>stormAlert</dmn:typeRef>
+    </dmn:itemComponent>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_C07AAC54-3367-4E17-8E42-1E69E000E05F" name="temperature" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:description>temperature</dmn:description>
     <dmn:typeRef>string</dmn:typeRef>
-    <dmn:typeConstraint id="_02C2BBAB-2386-498E-8F07-02C9CCA99DFC" kie:constraintType="enumeration">
+    <dmn:typeConstraint id="_1A6AB499-D752-474B-9855-FB69CB885C16" kie:constraintType="enumeration">
       <dmn:text>&quot;cold&quot;, &quot;warm&quot;, &quot;hot&quot;</dmn:text>
     </dmn:typeConstraint>
   </dmn:itemDefinition>
@@ -35,33 +42,58 @@
       <dmn:text>if Name = &quot;&quot; then &quot;Sorry, we don&apos;t have enough information to provide a response.&quot; else &quot;Hello &quot;+Name+&quot;! &quot; + Weather-Advice</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
-  <dmn:inputData name="Rain-Forecast" id="_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5">
-    <dmn:variable name="Rain-Forecast" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="weather" />
+  <dmn:inputData name="Weather" id="_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5">
+    <dmn:variable name="Weather" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="weather" />
   </dmn:inputData>
   <dmn:decision name="Weather-Advice" id="_B1640284-2CED-46ED-9694-DAC7F041A29D">
     <dmn:variable id="_81524467-361E-452A-B8DD-C484BBF14C76" typeRef="string" name="Weather-Advice" />
     <dmn:informationRequirement id="_6539573C-980E-46E6-9BD5-E855AB5CFC82">
       <dmn:requiredInput href="#_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5" />
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_FF3B1A6E-A48A-408E-9CBF-8D7F188A39B2" typeRef="string" hitPolicy="UNIQUE" label="Weather-Advice">
+    <dmn:decisionTable id="_FF3B1A6E-A48A-408E-9CBF-8D7F188A39B2" typeRef="string" hitPolicy="FIRST" label="Weather-Advice">
       <dmn:input id="_B0FB46AE-58A0-4677-93ED-13BCA6605D7C">
         <dmn:inputExpression id="_2AAD78DB-23DB-46BA-B329-B4AC7B603700" typeRef="number">
-          <dmn:text>weather.rainForecast</dmn:text>
+          <dmn:text>Weather.rainForecast</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_D74698D5-7CD6-45FD-ADAB-FD7766F27BF1">
         <dmn:inputExpression id="_CA4F1BC1-E792-46C3-825A-75F5CF21C32D" typeRef="string">
-          <dmn:text>weather.temperature</dmn:text>
+          <dmn:text>Weather.temperature</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_3EB78D02-918A-4278-A2A4-3C32B2C0ECCA">
+        <dmn:inputExpression id="_6B08B2E4-C351-407A-BFCB-A7B0A79361CA" typeRef="boolean">
+          <dmn:text>Weather.stormAlert</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_2C5C9285-D4ED-4ABE-A980-B9E942A556C0" name="Output-1" />
       <dmn:annotation name="Annotations" />
+      <dmn:rule id="_718CFFD2-EC75-4BE3-9376-25876CE1E8ED">
+        <dmn:inputEntry id="_753C1713-2990-499C-94BA-DE564454D74F">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2AEC7D91-7C54-46AD-9345-0577FA238009">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0E634CE4-9FAE-42A8-9CCD-2BFB79F2C2AD">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9EF11FF7-6048-4253-8C1F-F10D0B994B5B">
+          <dmn:text>&quot;Stay home! There is a strom Alert!.&quot;</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
       <dmn:rule id="_747C1444-D8E5-4F9B-8593-9AC346EDE8A7">
         <dmn:inputEntry id="_B1596DA5-73D8-47CC-9B46-E680378DBA3C">
           <dmn:text>[0..20]</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_9ECC44A6-A972-4B64-A4A7-7A237456CE54">
           <dmn:text>&quot;cold&quot;</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A5371E48-76C7-4719-A14B-EA64BD5CA77F">
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_C0809A51-7773-4C35-9E4D-487209B48FEB">
           <dmn:text>&quot;Cold day. Take a coat&quot;</dmn:text>
@@ -77,6 +109,9 @@
         <dmn:inputEntry id="_DBFA5EC7-F004-4397-AC63-FA84C571DACA">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
+        <dmn:inputEntry id="_C9841026-ECBF-4149-8EBA-7105FE496569">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
         <dmn:outputEntry id="_D5E12CB9-DA98-445B-8D98-01ED1D3EFE8D">
           <dmn:text>&quot;Risk of rain. Might need an umbrella&quot;</dmn:text>
         </dmn:outputEntry>
@@ -89,6 +124,9 @@
           <dmn:text>[81..100]</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_8E7F45A4-56E3-4B82-9441-71A7812E89C4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_B87EC250-2BD1-43F0-B7D0-80B2510225BE">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_AF23C938-1DC3-4DB0-AD97-F49FA6297E94">
@@ -110,6 +148,7 @@
           <kie:ComponentWidths dmnElementRef="_FF3B1A6E-A48A-408E-9CBF-8D7F188A39B2">
             <kie:width>60</kie:width>
             <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>447</kie:width>
             <kie:width>1146</kie:width>
