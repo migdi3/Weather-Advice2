@@ -4,7 +4,7 @@
   <dmn:itemDefinition id="_2C5AC602-035C-4CE0-95ED-AB91CB8F7C00" name="rainForecast" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:typeRef>number</dmn:typeRef>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_F1557017-BBF8-4AFF-833D-013449D8B66C" name="Weather" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+  <dmn:itemDefinition id="_F1557017-BBF8-4AFF-833D-013449D8B66C" name="weather" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <dmn:description>weather</dmn:description>
     <dmn:itemComponent id="_4D53CA18-B25C-4D10-9FE1-A7CE6783F7E5" name="rainForecast" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <dmn:typeRef>rainForecast</dmn:typeRef>
@@ -36,7 +36,7 @@
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData name="Rain-Forecast" id="_6E1B0CDC-0A0E-4D48-B956-0F5DE4589BE5">
-    <dmn:variable name="Rain-Forecast" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="Weather" />
+    <dmn:variable name="Rain-Forecast" id="_DA784FD0-6FB6-4518-8D1E-877D3E3E3F7C" typeRef="weather" />
   </dmn:inputData>
   <dmn:decision name="Weather-Advice" id="_B1640284-2CED-46ED-9694-DAC7F041A29D">
     <dmn:variable id="_81524467-361E-452A-B8DD-C484BBF14C76" typeRef="string" name="Weather-Advice" />
@@ -46,12 +46,12 @@
     <dmn:decisionTable id="_FF3B1A6E-A48A-408E-9CBF-8D7F188A39B2" typeRef="string" hitPolicy="UNIQUE" label="Weather-Advice">
       <dmn:input id="_B0FB46AE-58A0-4677-93ED-13BCA6605D7C">
         <dmn:inputExpression id="_2AAD78DB-23DB-46BA-B329-B4AC7B603700" typeRef="number">
-          <dmn:text>Weather.rainForecast</dmn:text>
+          <dmn:text>weather.rainForecast</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_D74698D5-7CD6-45FD-ADAB-FD7766F27BF1">
         <dmn:inputExpression id="_CA4F1BC1-E792-46C3-825A-75F5CF21C32D" typeRef="string">
-          <dmn:text>Weather.temperature</dmn:text>
+          <dmn:text>weather.temperature</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_2C5C9285-D4ED-4ABE-A980-B9E942A556C0" name="Output-1" />
